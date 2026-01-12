@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hùng | VIP++</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Hùng | VIP INFORMATION </title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-
 body{
     min-height:100vh;
     background:radial-gradient(circle at top,#0f2027,#000);
@@ -31,12 +29,7 @@ body{
     animation:intro 2.5s forwards;
     z-index:10;
 }
-
-@keyframes intro{
-    0%{opacity:1}
-    80%{opacity:1}
-    100%{opacity:0;visibility:hidden}
-}
+@keyframes intro{0%{opacity:1}80%{opacity:1}100%{opacity:0;visibility:hidden}}
 
 /* CARD */
 .card{
@@ -51,26 +44,14 @@ body{
     position:relative;
     z-index:1;
 }
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-@keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-10px)}
-}
-
-.avatar{
-    width:140px;
-    height:140px;
-    border-radius:50%;
-    border:4px solid #00f2ff;
-    object-fit:cover;
-    box-shadow:0 0 25px #00f2ff;
-}
-
+.avatar{width:140px;height:140px;border-radius:50%;border:4px solid #00f2ff;object-fit:cover;box-shadow:0 0 25px #00f2ff;}
 h2{margin-top:15px;font-size:24px;}
 .role{margin-top:6px;font-size:14px;opacity:0.85;}
 .line{width:70%;height:2px;margin:16px auto;background:linear-gradient(to right,transparent,#00f2ff,transparent);}
 
-/* BUTTONS */
+/* LINK BUTTONS */
 .links{display:flex;flex-direction:column;gap:14px;}
 .links a{
     text-decoration:none;color:white;padding:14px;border-radius:35px;font-size:16px;
@@ -81,20 +62,17 @@ h2{margin-top:15px;font-size:24px;}
 .zl{background:#00bfff;}
 .links a:hover{transform:scale(1.08);box-shadow:0 0 18px rgba(255,255,255,0.6);}
 
-/* MUSIC BUTTON - NỔI HẺO TRÊN CARD */
+/* NÚT NHẠC - DÙNG EMOJI */
 .music{
-    position:fixed; /* FIXED để luôn nhìn thấy */
+    position:fixed;
     top:20px;
     right:20px;
     font-size:42px;
     cursor:pointer;
-    color:#00f2ff;
-    transition:0.3s;
-    z-index:9999; /* luôn nổi trên tất cả */
+    z-index:9999;
 }
-.music:hover{
-    transform:scale(1.2);
-    color:#00ffff;
+.music span{
+    user-select:none;
 }
 
 /* FOOTER */
@@ -113,7 +91,7 @@ h2{margin-top:15px;font-size:24px;}
 
 <!-- NÚT NHẠC -->
 <div class="music" onclick="toggleMusic()">
-    <i id="music-icon" class="fas fa-music-slash"></i>
+    <span id="music-icon">🎵❌</span>
 </div>
 
 <div class="card">
@@ -122,27 +100,21 @@ h2{margin-top:15px;font-size:24px;}
     <!-- TÊN -->
     <h2>Hùng</h2>
     <!-- MÔ TẢ -->
-    <div class="role">Học sinh | VIP Profile ⚡</div>
+    <div class="role">Học sinh 10C1 | VIP FILE ⚡</div>
     <div class="line"></div>
 
     <!-- LINK -->
     <div class="links">
-        <a class="fb" href="https://www.facebook.com/LINK_FB" target="_blank">
-            <i class="fab fa-facebook"></i> Facebook
-        </a>
-        <a class="tt" href="https://www.tiktok.com/@USERNAME_TIKTOK" target="_blank">
-            <i class="fab fa-tiktok"></i> TikTok
-        </a>
-        <a class="zl" href="https://zalo.me/ID_ZALO" target="_blank">
-            <i class="fas fa-comment-dots"></i> Zalo
-        </a>
+        <a class="fb" href="https://www.facebook.com/share/1BcgrxFszD/" target="_blank">Facebook</a>
+        <a class="tt" href="https://www.tiktok.com/@hu.d.p?_r=1&_t=ZS-930aam7Zzqa" target="_blank">TikTok</a>
+        <a class="zl" href="https://zalo.me/84962969042" target="_blank">Zalo</a>
     </div>
 
-    <div class="footer">© 2026 | Hùng VIP++ 🔥</div>
+    <div class="footer">© Made by Hùng| VIP  🔥</div>
 </div>
 
 <script>
-// Toggle nhạc + icon
+// Toggle nhạc + emoji
 let playing=false;
 function toggleMusic(){
     const music=document.getElementById("bgm");
@@ -150,13 +122,11 @@ function toggleMusic(){
     if(!playing){
         music.play();
         playing=true;
-        icon.classList.remove("fa-music-slash");
-        icon.classList.add("fa-music");
+        icon.textContent="🎵"; // nhạc bật
     }else{
         music.pause();
         playing=false;
-        icon.classList.remove("fa-music");
-        icon.classList.add("fa-music-slash");
+        icon.textContent="🎵❌"; // nhạc tắt
     }
 }
 </script>
